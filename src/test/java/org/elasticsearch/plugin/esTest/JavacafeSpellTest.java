@@ -3,7 +3,7 @@ package org.elasticsearch.plugin.esTest;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.Index;
 import org.elasticsearch.index.analysis.TokenFilterFactory;
-import org.elasticsearch.plugin.analysis.JavacafePlugin;
+import org.elasticsearch.plugin.analysis.ElasticsearchPlugin;
 
 
 public class JavacafeSpellTest extends AbstractPluginTest {
@@ -23,7 +23,7 @@ public class JavacafeSpellTest extends AbstractPluginTest {
 
         // 실행
         TestAnalysis analysis = createTestAnalysis(
-                new Index("test", ""), Settings.builder().build(), new JavacafePlugin()
+                new Index("test", ""), Settings.builder().build(), new ElasticsearchPlugin()
         );
         
         TokenFilterFactory myFilter = analysis.tokenFilter.get(filterName);
@@ -45,7 +45,7 @@ public class JavacafeSpellTest extends AbstractPluginTest {
 
         // 실행
         TestAnalysis analysis = createTestAnalysis(
-                new Index("test", ""), Settings.builder().build(), new JavacafePlugin()
+                new Index("test", ""), Settings.builder().build(), new ElasticsearchPlugin()
         );
         
         TokenFilterFactory myFilter = analysis.tokenFilter.get(filterName);

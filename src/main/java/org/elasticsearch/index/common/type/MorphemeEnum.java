@@ -6,7 +6,7 @@ package org.elasticsearch.index.common.type;
  * @author hrkim
  *
  */
-public enum CodeType {
+public enum MorphemeEnum {
         
     /**
      * 초성

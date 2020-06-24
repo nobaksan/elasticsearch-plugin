@@ -13,13 +13,13 @@ import org.elasticsearch.index.common.parser.KoreanJamoParser;
  * @author hrkim
  *
  */
-public final class JavacafeJamoTokenFilter extends TokenFilter {
+public final class JamoTokenFilter extends TokenFilter {
     
     private KoreanJamoParser parser;
     private CharTermAttribute termAtt;
 
     
-    public JavacafeJamoTokenFilter(TokenStream stream) {
+    public JamoTokenFilter(TokenStream stream) {
         super(stream);
         this.parser = new KoreanJamoParser();
         this.termAtt = addAttribute(CharTermAttribute.class);
@@ -31,12 +31,14 @@ public final class JavacafeJamoTokenFilter extends TokenFilter {
      */
     @Override
     public boolean incrementToken() throws IOException {
-        
+
         if (input.incrementToken()) {
             CharSequence parserdData = parser.parse(termAtt.toString());
             termAtt.setEmpty();
+            termAtt.resizeBuffer(parserdData.length());
             termAtt.append(parserdData);
-        
+            termAtt.setLength(parserdData.length());
+
             return true;
         }
         

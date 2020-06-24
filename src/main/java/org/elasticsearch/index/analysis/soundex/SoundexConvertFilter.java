@@ -1,28 +1,26 @@
-package org.elasticsearch.index.analysis.kor2eng;
-
-import java.io.IOException;
+package org.elasticsearch.index.analysis.soundex;
 
 import org.apache.lucene.analysis.TokenFilter;
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-import org.elasticsearch.index.common.converter.KorToEngConverter;
+import org.elasticsearch.index.common.converter.SoundexConverter;
+
+import java.io.IOException;
 
 /**
  * 한영 변환 필터
  *
- * @author hrkim
- *
  */
-public final class JavacafeKor2EngConvertFilter extends TokenFilter {
+public final class SoundexConvertFilter extends TokenFilter {
 
-    private KorToEngConverter converter;
+    private SoundexConverter converter;
     private CharTermAttribute termAtt;
 
     
-    public JavacafeKor2EngConvertFilter(TokenStream stream) {
+    public SoundexConvertFilter(TokenStream stream) {
         super(stream);        
-        this.converter = new KorToEngConverter();
-        this.termAtt = addAttribute(CharTermAttribute.class);     
+        this.converter = new SoundexConverter();
+        this.termAtt = addAttribute(CharTermAttribute.class);
     }
 
     
@@ -32,7 +30,9 @@ public final class JavacafeKor2EngConvertFilter extends TokenFilter {
         if (input.incrementToken()) {
             CharSequence parserdData = converter.convert(termAtt.toString());
             termAtt.setEmpty();
+            termAtt.resizeBuffer(parserdData.length());
             termAtt.append(parserdData);
+            termAtt.setLength(parserdData.length());
         
             return true;
         }

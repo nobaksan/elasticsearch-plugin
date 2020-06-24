@@ -1,15 +1,13 @@
-package org.elasticsearch.index.common.util;
+package org.elasticsearch.index.common.charcter;
+
+import org.elasticsearch.index.common.type.MorphemeEnum;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import org.elasticsearch.index.common.type.MorphemeEnum;
-
 /**
  * 한글 키보드 유틸리티
  * 
- *
- * @author hrkim
  *
  */
 public class KeyboardUtil {
@@ -69,7 +67,13 @@ public class KeyboardUtil {
             "ㅆ", "ㅒ", "ㅖ"
     };
    
-    
+    public static final String[] COMBINE_JUNGSUNG = {
+            "ㅘ", "ㅙ", "ㅚ", "ㅝ", "ㅞ",  "ㅟ", "ㅢ"
+    };
+
+    public static final String[] SPLIT_JUNGSUNG = {
+            "ㅗㅏ", "ㅗㅐ", "ㅗㅣ", "ㅜㅓ", "ㅜㅔ",  "ㅜㅣ", "ㅡㅣ"
+    };
     
     
 
@@ -83,7 +87,7 @@ public class KeyboardUtil {
      * @param word
      * @return
      */
-    public static Map<String, Integer> getInfoForChoSung(int index, String word) {  
+    public static Map<String, Integer> getInfoForChoSung(int index, String word) {
         int code = KeyboardUtil.makeUnicodeIndex(MorphemeEnum.CHOSUNG, word.substring(index, index + 1));
         int idx = index + 1;
         
@@ -236,7 +240,7 @@ public class KeyboardUtil {
      * 키보드상에 매칭된 유니코드값 Index를 리턴한다.
      * 
      * @param type
-     * @param sub_str
+     * @param subStr
      * @return
      */
     private static int makeUnicodeIndex(MorphemeEnum type, String subStr) {

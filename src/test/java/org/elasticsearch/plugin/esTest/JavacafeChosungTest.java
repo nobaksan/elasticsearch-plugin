@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.Index;
 import org.elasticsearch.index.analysis.TokenFilterFactory;
-import org.elasticsearch.plugin.analysis.JavacafePlugin;
+import org.elasticsearch.plugin.analysis.ElasticsearchPlugin;
 
 
 public class JavacafeChosungTest extends AbstractPluginTest {
@@ -30,7 +30,7 @@ public class JavacafeChosungTest extends AbstractPluginTest {
 
         // 실행
         TestAnalysis analysis = createTestAnalysis(
-                new Index("test", ""), Settings.builder().build(), new JavacafePlugin()
+                new Index("test", ""), Settings.builder().build(), new ElasticsearchPlugin()
         );
         
         TokenFilterFactory myFilter = analysis.tokenFilter.get(filterName);

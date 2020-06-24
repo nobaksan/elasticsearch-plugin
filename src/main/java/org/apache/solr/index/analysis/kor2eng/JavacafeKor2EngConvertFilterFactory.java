@@ -2,7 +2,7 @@ package org.apache.solr.index.analysis.kor2eng;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.util.TokenFilterFactory;
-import org.elasticsearch.index.analysis.kor2eng.JavacafeKor2EngConvertFilter;
+import org.elasticsearch.index.analysis.kor2eng.Kor2EngConvertFilter;
 
 import java.util.Map;
 
@@ -35,7 +35,7 @@ public class JavacafeKor2EngConvertFilterFactory extends TokenFilterFactory {
 
     @Override
     public TokenStream create(TokenStream tokenStream) {
-        return new JavacafeKor2EngConvertFilter(tokenStream);
+        return new Kor2EngConvertFilter(tokenStream);
     }
     
     
