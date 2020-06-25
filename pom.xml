@@ -13,7 +13,6 @@
     <!-- 로컬에서는 테스트 문제로 6.2.2를 사용하자 -->
     <properties>
         <elasticsearch.version>7.7.0</elasticsearch.version>
-        <!-- 		<elasticsearch.version>6.2.2</elasticsearch.version> -->
         <lucene.version>8.5.1</lucene.version>
     </properties>
 
@@ -49,6 +48,18 @@
             <artifactId>log4j-core</artifactId>
             <version>2.9.1</version>
             <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>29.0-jre</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava-primitives -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava-primitives</artifactId>
+            <version>r03</version>
         </dependency>
 
 
@@ -86,7 +97,7 @@
 
 
     <build>
-        <finalName>javacafe-analyzer-${elasticsearch.version}</finalName>
+        <finalName>starstory-analyzer-${elasticsearch.version}</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

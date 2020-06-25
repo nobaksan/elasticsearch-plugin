@@ -2,7 +2,6 @@ package org.elasticsearch.index.common.parser;
 
 import com.google.common.primitives.Chars;
 import org.elasticsearch.index.common.charcter.JamoConstant;
-import org.elasticsearch.index.common.util.JamoUtil;
 
 /**
  * 한글 자모 Parser
