@@ -6,10 +6,10 @@ import org.elasticsearch.index.analysis.jamo.JamoTokenFilter;
 
 import java.util.Map;
 
-public class JavacafeJamoTokenFilterFactory  extends TokenFilterFactory {
+public class JamoTokenFilterFactory extends TokenFilterFactory {
 
     
-    public JavacafeJamoTokenFilterFactory(Map<String, String> args) {
+    public JamoTokenFilterFactory(Map<String, String> args) {
         super(args);
     }
     

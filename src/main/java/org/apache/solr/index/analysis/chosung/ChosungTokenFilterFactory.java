@@ -26,10 +26,10 @@ import java.util.Map;
  *     </fieldType>
  *
  * */
-public class JavacafeChosungTokenFilterFactory extends TokenFilterFactory {
+public class ChosungTokenFilterFactory extends TokenFilterFactory {
 
     
-    public JavacafeChosungTokenFilterFactory(Map<String, String> args) {
+    public ChosungTokenFilterFactory(Map<String, String> args) {
         super(args);
     }
 

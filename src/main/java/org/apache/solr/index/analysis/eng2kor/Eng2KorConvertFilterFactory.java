@@ -1,14 +1,13 @@
-package org.apache.solr.index.analysis.kor2eng;
+package org.apache.solr.index.analysis.eng2kor;
 
 import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.util.TokenFilterFactory;
-import org.elasticsearch.index.analysis.kor2eng.Kor2EngConvertFilter;
+import org.elasticsearch.index.analysis.eng2kor.Eng2KorConvertFilter;
 
 import java.util.Map;
-
 /**
  *
- *  <fieldType name="text_auto_ko2en" class="solr.TextField" positionIncrementGap="100">
+ *  <fieldType name="text_auto_en2ko" class="solr.TextField" positionIncrementGap="100">
  *       <analyzer type="index">
  *         <tokenizer class="solr.KoreanTokenizerFactory" decompoundMode="discard" outputUnknownUnigrams="false"/>
  *         <filter class="solr.KoreanPartOfSpeechStopFilterFactory" />
@@ -17,7 +16,7 @@ import java.util.Map;
  *       </analyzer>
  *        <analyzer type="query">
  *         <tokenizer class="solr.StandardTokenizerFactory"/>
- *         <filter class="org.apache.solr.index.analysis.kor2eng.JavacafeKor2EngConvertFilterFactory"/>
+ *         <filter class="org.apache.solr.index.analysis.eng2kor.JavacafeEng2KorConvertFilterFactory"/>
  *         <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
  *         <filter class="solr.SynonymGraphFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
  *         <filter class="solr.LowerCaseFilterFactory"/>
@@ -25,17 +24,17 @@ import java.util.Map;
  *     </fieldType>
  *
  * */
-public class JavacafeKor2EngConvertFilterFactory extends TokenFilterFactory {
+public class Eng2KorConvertFilterFactory extends TokenFilterFactory {
 
     
-    public JavacafeKor2EngConvertFilterFactory(Map<String, String> args) {
+    public Eng2KorConvertFilterFactory(Map<String, String> args) {
         super(args);
     }
     
 
     @Override
     public TokenStream create(TokenStream tokenStream) {
-        return new Kor2EngConvertFilter(tokenStream);
+        return new Eng2KorConvertFilter(tokenStream);
     }
     
     
